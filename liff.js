@@ -1,6 +1,3 @@
-import { createWidget } from '@typeform/embed'
-import '@typeform/embed/build/css/widget.css'
-
 $(document).ready(function () {
     var liffId = "1660902973-O0nlK4Pm";
     initializeLiff(liffId);
@@ -20,13 +17,12 @@ function initializeLiff(liffId) {
                 liff
                     .getProfile()
                     .then((profile) => {
-                        createWidget("DTtj9iZt", {
-                            container: document.getElementById("tf-wrapper"),
-                            hidden: {
-                                user_id: profile.userId,
-                                name: profile.displayName
-                            },
-                          })
+                        document.getElementById('tf-wrapper')
+                            .appendChild(
+                                document.createElement('div')
+                                .setAttribute('data-tf-widget', 'DTtj9iZt')
+                                .setAttribute('data-tf-hidden', 'userId='+profile.userId+',name='+profile.displayName)
+                            )
                     })
                     .catch((err) => {
                         window.alert('getProfile failed ' + err);
