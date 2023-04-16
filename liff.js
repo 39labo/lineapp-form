@@ -18,8 +18,13 @@ function initializeLiff(liffId) {
                     .getProfile()
                     .then((profile) => {
                         var wrapper = document.getElementById('tf-wrapper');
-                        wrapper.setAttribute('data-tf-widget', 'DTtj9iZt')
-                        wrapper.setAttribute('data-tf-hidden', 'userId='+profile.userId+',name='+profile.displayName)
+                        var div = document.createElement('div');
+                        div.setAttribute('data-tf-widget', 'DTtj9iZt')
+                        div.setAttribute('data-tf-hidden', 'userId='+profile.userId+',name='+profile.displayName)
+                        wrapper.appendChild(div);
+                        var script = document.createElement('script');
+                        script.src = '//embed.typeform.com/next/embed.js';
+                        wrapper.appendChild(script);
                     })
                     .catch((err) => {
                         window.alert('getProfile failed ' + err);
