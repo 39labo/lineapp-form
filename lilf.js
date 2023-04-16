@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    document.getElementById('answer').value = 'loading...';
     var liffId = "1660902973-O0nlK4Pm";
     console.log(`init liff, ID : ${liffId}`);
     initializeLiff(liffId);
@@ -15,11 +16,11 @@ function initializeLiff(liffId) {
                 window.alert("LINEアカウントにログインしてください。");
                 liff.login({redirectUri: location.href});
             }else{
-                console.log('Login Success');
+                document.getElementById('answer').value = 'login success';
             }
         })
         .catch((err) => {
-            console.log('LIFF Initialization failed ', err);
+            document.getElementById('answer').value = 'LIFF Initialization failed ' + err;
         });
 }
 
