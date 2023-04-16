@@ -18,10 +18,8 @@ function initializeLiff(liffId) {
                     .getProfile()
                     .then((profile) => {
                         var wrapper = document.getElementById('tf-wrapper');
-                        var div = document.createElement('div');
-                        div.setAttribute('data-tf-widget', 'DTtj9iZt')
-                        div.setAttribute('data-tf-hidden', 'userId='+profile.userId+',name='+profile.displayName)
-                        wrapper.appendChild(div)
+                        wrapper.setAttribute('data-tf-widget', 'DTtj9iZt')
+                        wrapper.setAttribute('data-tf-hidden', 'userId='+profile.userId+',name='+profile.displayName)
                     })
                     .catch((err) => {
                         window.alert('getProfile failed ' + err);
