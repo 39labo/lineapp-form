@@ -29,12 +29,12 @@ function initializeLiff(liffId) {
                           })
                     })
                     .catch((err) => {
-                        window.alert(err);
+                        window.alert('getProfile failed ' + err);
                     });
                 
             }
         })
         .catch((err) => {
-            document.getElementById('answer').value = 'LIFF Initialization failed ' + err;
+            window.alert('LIFF Initialization failed ' + err);
         });
 }
