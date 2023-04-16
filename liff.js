@@ -20,7 +20,7 @@ function initializeLiff(liffId) {
                         var wrapper = document.getElementById('tf-wrapper');
                         var div = document.createElement('div');
                         div.setAttribute('data-tf-widget', 'DTtj9iZt')
-                        div.setAttribute('data-tf-hidden', 'userId='+profile.userId+',name='+profile.displayName)
+                        div.setAttribute('data-tf-hidden', 'user_id='+profile.userId+',name='+profile.displayName)
                         wrapper.appendChild(div);
                         var script = document.createElement('script');
                         script.src = '//embed.typeform.com/next/embed.js';
