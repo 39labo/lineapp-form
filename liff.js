@@ -14,22 +14,12 @@ function initializeLiff(liffId) {
                 window.alert("LINEアカウントにログインしてください。");
                 liff.login({redirectUri: location.href});
             }else{
-                liff
-                    .getProfile()
-                    .then((profile) => {
-                        var wrapper = document.getElementById('tf-wrapper');
-                        var div = document.createElement('div');
-                        div.setAttribute('data-tf-widget', 'DTtj9iZt')
-                        div.setAttribute('data-tf-hidden', 'user_id='+profile.userId+',name='+profile.displayName)
-                        wrapper.appendChild(div);
-                        var script = document.createElement('script');
-                        script.src = '//embed.typeform.com/next/embed.js';
-                        wrapper.appendChild(script);
-                    })
-                    .catch((err) => {
-                        window.alert('getProfile failed ' + err);
-                    });
-                
+                const idToken = liff.getIDToken();
+                var formUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSengIKFHfwaRHsqHLe7E776kG8b7jLU6_COZ_7uCUrQIuEd7Q/viewform?embedded=true&usp=pp_url&entry.2046105793='+idToken;             
+                var wrapper = document.getElementById('tf-wrapper');
+                var iframe = document.createElement('iframe');
+                iframe.setAttribute('src', formUrl)
+                wrapper.appendChild(iframe);                
             }
         })
         .catch((err) => {
