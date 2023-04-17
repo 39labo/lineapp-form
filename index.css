@@ -18,6 +18,11 @@ header{
     height: 100%;
 }
 
+div[role=listitem]:nth-child(1),div[role=listitem]:nth-child(2) {
+    height: 0;
+    visibility: hidden;
+}
+
 .header-block{
     width: 95%;
     height: 100%;
