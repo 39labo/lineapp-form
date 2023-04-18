@@ -18,8 +18,7 @@ function initializeLiff(liffId) {
                 console.log(idToken);
                 liff.getProfile()
                     .then((profile) => {
-                        console.log(profile);
-                        var formUrl = 'https://forms.gle/UUnapwTmTfNPSwjC6?embedded=true&usp=pp_url&c'+profile.userId+'&entry.2046105793='+profile.displayName;
+                        var formUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSengIKFHfwaRHsqHLe7E776kG8b7jLU6_COZ_7uCUrQIuEd7Q/viewform?embedded=true&usp=pp_url&c'+profile.userId+'&entry.2046105793='+profile.displayName;
                         var wrapper = document.getElementById('tf-wrapper');
                         var iframe = document.createElement('iframe');
                         iframe.setAttribute('src', formUrl);

@@ -18,8 +18,12 @@ header{
     height: 100%;
 }
 
-.Qr7Oae:nth-child(1) {
+.Qr7Oae {
     height: 0;
+    visibility: hidden;
+}
+
+.nYdzXd {
     visibility: hidden;
 }
 
