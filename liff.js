@@ -19,7 +19,7 @@ function initializeLiff(liffId) {
                         var formUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSengIKFHfwaRHsqHLe7E776kG8b7jLU6_COZ_7uCUrQIuEd7Q/viewform?embedded=true&usp=pp_url&entry.1916663609='+profile.userId+'&entry.2046105793='+profile.displayName;
                         var wrapper = document.getElementById('tf-wrapper');
                         var iframe = document.createElement('iframe');
-                        iframe.addEventListener('load', function() {
+                        iframe.contentWindow.onload = function() {
                             console.log('load');
                             var elem = document.querySelector('.nYdzXd');
                             console.log(elem);
@@ -33,7 +33,7 @@ function initializeLiff(liffId) {
                                 field[f].style.visibility = 'hidden';
                                 field[f].style.height = 0;
                             }
-                        });
+                        };
                         iframe.setAttribute('src', formUrl);
                         wrapper.appendChild(iframe);
                         
