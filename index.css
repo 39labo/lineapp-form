@@ -8,14 +8,9 @@ header{
     background-color: #181818;
 }
 
-#tf-wrapper{
+iframe{
     width: 100%;
     height: calc(100vh - 75px);
-}
-
-#tf-wrapper iframe{
-    width: 100%;
-    height: 100%;
 }
 
 .header-block{
