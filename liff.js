@@ -3,6 +3,12 @@ $(document).ready(function () {
     initializeLiff(liffId);
 })
 
+$('iframe').on('load', function () {
+    console.log('load');
+    var elem = iframe.querySelector('.nYdzXd');
+    elem.style.visibility = 'hidden';
+})
+
 function initializeLiff(liffId) {
     liff
         .init({
@@ -18,15 +24,13 @@ function initializeLiff(liffId) {
                 console.log(idToken);
                 liff.getProfile()
                     .then((profile) => {
-                        var formUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSengIKFHfwaRHsqHLe7E776kG8b7jLU6_COZ_7uCUrQIuEd7Q/viewform?embedded=true&usp=pp_url&c'+profile.userId+'&entry.2046105793='+profile.displayName;
+                        var formUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSengIKFHfwaRHsqHLe7E776kG8b7jLU6_COZ_7uCUrQIuEd7Q/viewform?embedded=true&usp=pp_url&entry.1916663609='+profile.userId+'&entry.2046105793='+profile.displayName;
                         var wrapper = document.getElementById('tf-wrapper');
                         var iframe = document.createElement('iframe');
                         iframe.setAttribute('src', formUrl);
                         wrapper.appendChild(iframe);
-                        var elem = iframe.querySelector('.nYdzXd');
-                        elem.style.visibility = 'hidden';
                     }).catch((err) => {
-                        window.alert('Error getting profile: ' + err);
+                        window.alert('Error display form: ' + err);
                     });
             }
         })
