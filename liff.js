@@ -23,6 +23,8 @@ function initializeLiff(liffId) {
                         var iframe = document.createElement('iframe');
                         iframe.setAttribute('src', formUrl);
                         wrapper.appendChild(iframe);
+                        var elem = iframe.querySelector('.nYdzXd');
+                        elem.style.visibility = 'hidden';
                     }).catch((err) => {
                         window.alert('Error getting profile: ' + err);
                     });
