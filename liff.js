@@ -15,11 +15,14 @@ function initializeLiff(liffId) {
                 liff.login({redirectUri: location.href});
             }else{
                 const idToken = liff.getIDToken();
-                var formUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSengIKFHfwaRHsqHLe7E776kG8b7jLU6_COZ_7uCUrQIuEd7Q/viewform?embedded=true&usp=pp_url&entry.2046105793='+idToken;             
-                var wrapper = document.getElementById('tf-wrapper');
-                var iframe = document.createElement('iframe');
-                iframe.setAttribute('src', formUrl)
-                wrapper.appendChild(iframe);                
+                console.log(idToken);
+                const profile = liff.getProfile();
+                console.log(profile);
+                // var formUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSengIKFHfwaRHsqHLe7E776kG8b7jLU6_COZ_7uCUrQIuEd7Q/viewform?embedded=true&usp=pp_url&entry.2046105793='+idToken;             
+                // var wrapper = document.getElementById('tf-wrapper');
+                // var iframe = document.createElement('iframe');
+                // iframe.setAttribute('src', formUrl)
+                // wrapper.appendChild(iframe);                
             }
         })
         .catch((err) => {
