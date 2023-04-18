@@ -3,17 +3,6 @@ $(document).ready(function () {
     initializeLiff(liffId);
 })
 
-function iframeLoaded() {
-    console.log('load');
-    var elem = document.querySelector('.nYdzXd');
-    elem.style.visibility = 'hidden';
-    var field = document.querySelectorAll('div[role=listitem]:nth-child(1),div[role=listitem]:nth-child(2)');
-    for (var f in field) {
-        field[f].style.visibility = 'hidden';
-        field[f].style.height = 0;
-    }
-}
-
 function initializeLiff(liffId) {
     liff
         .init({
@@ -32,7 +21,20 @@ function initializeLiff(liffId) {
                         var iframe = document.createElement('iframe');
                         iframe.setAttribute('src', formUrl);
                         wrapper.appendChild(iframe);
-                        iframe.onload = iframeLoaded();
+                        iframe.addEventListener('load', function() {
+                            console.log('load');
+                            var elem = document.querySelector('.nYdzXd');
+                            if (elem) {
+                                elem.style.visibility = 'hidden';
+                            } else {
+                                console.log('cant find elem');
+                            }
+                            var field = document.querySelectorAll('div[role=listitem]:nth-child(1),div[role=listitem]:nth-child(2)');
+                            for (var f in field) {
+                                field[f].style.visibility = 'hidden';
+                                field[f].style.height = 0;
+                            }
+                        } );
                     }).catch((err) => {
                         window.alert('Error display form: ' + err);
                     });
