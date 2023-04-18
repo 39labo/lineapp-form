@@ -7,14 +7,14 @@ window.onload = function() {
     var iframe = document.querySelector('iframe');
     iframe.onload = function() {
         alert( '読み込み完了' );
-        var elem = document.querySelector('.nYdzXd');
+        var elem = this.contentWindow.document.querySelector('.nYdzXd');
         console.log(elem);
         if (elem) {
             elem.style.visibility = 'hidden';
         } else {
             console.log('cant find elem');
         }
-        var field = document.querySelectorAll('div[role=listitem]:nth-child(1),div[role=listitem]:nth-child(2)');
+        var field = this.contentWindow.document.querySelectorAll('div[role=listitem]:nth-child(1),div[role=listitem]:nth-child(2)');
         for (var f in field) {
             field[f].style.visibility = 'hidden';
             field[f].style.height = 0;
