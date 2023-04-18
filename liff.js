@@ -31,8 +31,8 @@ function initializeLiff(liffId) {
                         var wrapper = document.getElementById('tf-wrapper');
                         var iframe = document.createElement('iframe');
                         iframe.setAttribute('src', formUrl);
-                        iframe.onload = iframeLoaded();
                         wrapper.appendChild(iframe);
+                        iframe.onload = iframeLoaded();
                     }).catch((err) => {
                         window.alert('Error display form: ' + err);
                     });
