@@ -10,7 +10,7 @@ function initializeLiff(liffId) {
         })
         .then(() => {
             if (!liff.isInClient() && !liff.isLoggedIn()) {
-                window.alert("LINEアカウントにログインしてください。");
+                window.alert("LINEアカウントでログインするか、LINEアプリから開いてください。");
                 liff.login({redirectUri: location.href});
             }else{
                 const accessToken = liff.getAccessToken();
